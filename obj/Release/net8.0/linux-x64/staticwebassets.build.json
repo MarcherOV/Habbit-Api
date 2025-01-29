@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "V9WWHmpJngKHMmD2T7QR0qx8GbKP4heqnO8BPmol2Zw=",
+  "Source": "Habbit_Api",
+  "BasePath": "_content/Habbit_Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

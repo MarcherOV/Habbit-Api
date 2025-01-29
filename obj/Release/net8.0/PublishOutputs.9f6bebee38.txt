@@ -1,0 +1,17 @@
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Habbit_Api.exe
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Habbit_Api.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Habbit_Api.deps.json
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Habbit_Api.runtimeconfig.json
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Habbit_Api.pdb
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\DnsClient.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\MongoDB.Bson.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\MongoDB.Driver.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\SharpCompress.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Snappier.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\vovad\source\repos\Habbit_Api\obj\Release\net8.0\PubTmp\Out\ZstdSharp.dll

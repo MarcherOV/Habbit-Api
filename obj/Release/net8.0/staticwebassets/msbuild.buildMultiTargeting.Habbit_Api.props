@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Habbit_Api.props" />
+</Project>

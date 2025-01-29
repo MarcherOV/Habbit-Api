@@ -16,8 +16,12 @@ namespace Habbit_Api.Models
         public string Description { get; set; }
         public Attribute Attribute { get; set; }
         public Type Type { get; set; }
-        public bool IsDone { get; set; } = false;// Possible values: Not Started, In Progress, Completed
-        public DateTime DueDate { get; set; }
+
+        [BsonElement("score")]
+        public double Score { get; set; }
+
+        [BsonElement("completion_date")]
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
         public DateTime? CompletionDate { get; set; }
     }
 

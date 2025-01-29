@@ -40,3 +40,4 @@ C:\Users\vovad\source\repos\Habbit_Api\obj\Debug\net8.0\Habbit_Api.pdb
 C:\Users\vovad\source\repos\Habbit_Api\obj\Debug\net8.0\Habbit_Api.genruntimeconfig.cache
 C:\Users\vovad\source\repos\Habbit_Api\obj\Debug\net8.0\ref\Habbit_Api.dll
 C:\Users\vovad\source\repos\Habbit_Api\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\vovad\source\repos\Habbit_Api\obj\Debug\net8.0\Habbit_Api.sourcelink.json

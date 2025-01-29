@@ -45,6 +45,25 @@ public class TasksController : ControllerBase
         return NoContent();
     }
 
+    [HttpPut("complete/{id}")]
+    public async Task<IActionResult> MarkTaskAsCompleted(string id)
+    {
+        var task = await _db.Tasks.Find(t => t.Id == id).FirstOrDefaultAsync();
+        if (task == null)
+        {
+            return NotFound();
+        }
+
+        task.CompletionDate = DateTime.UtcNow; // Встановлюємо поточну дату як дату завершення
+        var result = await _db.Tasks.ReplaceOneAsync(t => t.Id == id, task);
+        if (result.MatchedCount == 0)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(string id)
     {

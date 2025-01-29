@@ -29,6 +29,36 @@ public class UsersController : ControllerBase
         return Ok(user);
     }
 
+    // Отримання Strength
+    [HttpGet("{auth0_id}/strength")]
+    public async Task<IActionResult> GetStrength(string auth0_id)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        return Ok(new { Strength = user.Stats.СurrentProgressStrengh });
+    }
+
+    // Отримання Intelligence
+    [HttpGet("{auth0_id}/intelligence")]
+    public async Task<IActionResult> GetIntelligence(string auth0_id)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        return Ok(new { Intelligence = user.Stats.СurrentProgressIntelligence });
+    }
+
+    // Отримання Charisma
+    [HttpGet("{auth0_id}/charisma")]
+    public async Task<IActionResult> GetCharisma(string auth0_id)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        return Ok(new { Charisma = user.Stats.СurrentProgressCharisma });
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateUser([FromBody] User newUser)
     {
@@ -45,6 +75,81 @@ public class UsersController : ControllerBase
     {
         var result = await _db.Users.ReplaceOneAsync(u => u.Auth0Id == auth0_id, updatedUser);
         if (result.MatchedCount == 0) return NotFound();
+        return NoContent();
+    }
+
+    // Оновлення Strength
+    [HttpPut("{auth0_id}/strength")]
+    public async Task<IActionResult> UpdateStrength(string auth0_id, [FromBody] double strengthProgress)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        user.Stats.СurrentProgressStrengh = strengthProgress;
+
+        var result = await _db.Users.ReplaceOneAsync(u => u.Auth0Id == auth0_id, user);
+
+        if (result.ModifiedCount > 0) return Ok(user);
+
+        return BadRequest("Failed to update Strength progress.");
+    }
+
+    // Оновлення Intelligence
+    [HttpPut("{auth0_id}/intelligence")]
+    public async Task<IActionResult> UpdateIntelligence(string auth0_id, [FromBody] double intelligenceProgress)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        user.Stats.СurrentProgressIntelligence = intelligenceProgress;
+
+        var result = await _db.Users.ReplaceOneAsync(u => u.Auth0Id == auth0_id, user);
+
+        if (result.ModifiedCount > 0) return Ok(user);
+
+        return BadRequest("Failed to update Intelligence progress.");
+    }
+
+    // Оновлення Charisma
+    [HttpPut("{auth0_id}/charisma")]
+    public async Task<IActionResult> UpdateCharisma(string auth0_id, [FromBody] double charismaProgress)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        user.Stats.СurrentProgressCharisma = charismaProgress;
+
+        var result = await _db.Users.ReplaceOneAsync(u => u.Auth0Id == auth0_id, user);
+
+        if (result.ModifiedCount > 0) return Ok(user);
+
+        return BadRequest("Failed to update Charisma progress.");
+    }
+
+    [HttpPost("{auth0_id}/update-progress")]
+    public async Task<IActionResult> UpdateProgress(string auth0_id, [FromBody] UpdateProgressRequest request)
+    {
+        var user = await _db.Users.Find(u => u.Auth0Id == auth0_id).FirstOrDefaultAsync();
+        if (user == null) return NotFound();
+
+        // Оновлення відповідного атрибуту
+        switch (request.Attribute)
+        {
+            case Habbit_Api.Models.Attribute.Strength:
+                user.Stats.СurrentProgressStrengh += request.Increment;
+                break;
+            case Habbit_Api.Models.Attribute.Intelligence:
+                user.Stats.СurrentProgressIntelligence += request.Increment;
+                break;
+            case Habbit_Api.Models.Attribute.Charisma:
+                user.Stats.СurrentProgressCharisma += request.Increment;
+                break;
+            default:
+                return BadRequest("Invalid attribute.");
+        }
+
+        // Зберігаємо зміни
+        await _db.Users.ReplaceOneAsync(u => u.Auth0Id == auth0_id, user);
         return NoContent();
     }
 

@@ -4,11 +4,13 @@ namespace Habbit_Api.Models
 {
     public class UserStats
     {
-        [BsonElement("score")]
-        public int Score { get; set; }
+        [BsonElement("currentProgressStrengh")]
+        public double СurrentProgressStrengh { get; set; }
 
-        [BsonElement("level")]
-        public int Level { get; set; }
+        [BsonElement("currentProgressIntelligence")]
+        public double СurrentProgressIntelligence { get; set; }
 
+        [BsonElement("currentProgressCharisma")]
+        public double СurrentProgressCharisma { get; set; }
     }
 }
